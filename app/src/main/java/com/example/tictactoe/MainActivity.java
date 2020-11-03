@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        //function to check if a button has been pressed, and if it has, make it uneditable.
+        if (!((Button)v).getText().toString().equals("")){
+            return;
+        }
+        String btnID = v.getResources().getResourceEntryName((v.getId()));
+        int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
     }
 }
