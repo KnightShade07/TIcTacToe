@@ -3,10 +3,12 @@ package com.example.tictactoe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView playerStatus;
     private Button [] buttonArray = new Button[9];
     private Button resetGame;
@@ -30,5 +32,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         resetGame = (Button) findViewById(R.id.btnNewGame);
+        //loop for the buttons/squares to listen for when they've been clicked.
+        for (int i = 0; i < buttonArray.length; i++){
+            String buttonID = "btn_" + i;
+            int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            buttonArray[i] = (Button) findViewById(resourceID);
+            buttonArray[i].setOnClickListener(this);
+        }
+        squareCount = 0;
+        currentPlayer = true;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
