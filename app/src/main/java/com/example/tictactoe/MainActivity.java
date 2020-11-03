@@ -64,4 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         squareCount++;
     }
+
+    public void clearSquares(){
+        squareCount = 0;
+        currentPlayer = true;
+        for (int i = 0; i < buttonArray.length; i++){
+            gameStatus[i] = 2;
+            buttonArray[i].setText("");
+        }
+    }
 }
