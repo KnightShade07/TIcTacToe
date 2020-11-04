@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button [] buttonArray = new Button[9];
     private Button resetGame;
 
-    private int p1Score, p2Score, squareCount;
+    private int p1Score, p2Score, btnCount;
     boolean currentPlayer;
 
     int [] gameStatus = {2,2,2,2,2,2,2,2};
@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resetGame = (Button) findViewById(R.id.btnNewGame);
         //loop for the buttons/squares to listen for when they've been clicked.
-        for (int i = 0; i < buttonArray.length; i++){
+        for (int i = 1; i < buttonArray.length; i++){
             String buttonID = "btn_" + i;
             int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
             buttonArray[i] = (Button) findViewById(resourceID);
             buttonArray[i].setOnClickListener(this);
         }
-        squareCount = 0;
+        btnCount = 0;
         currentPlayer = true;
     }
 
@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //OPTIONAL: After functional, consider giving O a color.
             gameStatus[gameStatusTracker] = 1;
         }
-        squareCount++;
+        btnCount++;
     }
 
-    public void clearSquares(){
-        squareCount = 0;
+    public void clearButtons(){
+        btnCount = 0;
         currentPlayer = true;
         for (int i = 0; i < buttonArray.length; i++){
             gameStatus[i] = 2;
