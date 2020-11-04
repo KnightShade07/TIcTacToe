@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int p1Score, p2Score, btnCount;
     boolean currentPlayer;
 
-    int [] gameStatus = {2,2,2,2,2,2,2,2};
+    int [] gameStatus = {2,2,2,2,2,2,2,2,2};
 
     int[][] winningRowsAndColumns = {
             {0,1,2}, {3,4,5}, {6,7,8},//rows.
