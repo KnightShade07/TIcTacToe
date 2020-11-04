@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetGame = (Button) findViewById(R.id.btnNewGame);
         //loop for the buttons/squares to listen for when they've been clicked.
         for (int i = 0; i < buttonArray.length; i++){
-            String buttonID = "btn_" + i;
-            int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            String squareID = "square" + i;
+            int resourceID = getResources().getIdentifier(squareID, "id", getPackageName());
             buttonArray[i] = (Button) findViewById(resourceID);
             buttonArray[i].setOnClickListener(this);
         }
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!((Button)v).getText().toString().equals("")){
             return;
         }
-        String btnID = v.getResources().getResourceEntryName((v.getId()));
-        int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
+        String squareID = v.getResources().getResourceEntryName((v.getId()));
+        int gameStatusTracker = Integer.parseInt(squareID.substring(squareID.length()-1, squareID.length()));
 
         if (currentPlayer){
             ((Button)v).setText("X");
