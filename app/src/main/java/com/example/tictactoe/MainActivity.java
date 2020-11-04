@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         btnCount = 0;
         currentPlayer = true;
+
+
     }
 
     @Override
@@ -63,14 +65,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gameStatus[gameStatusTracker] = 1;
         }
         btnCount++;
+
     }
 
-    public void clearButtons(){
+    public void clearButtons(View view){
         btnCount = 0;
         currentPlayer = true;
         for (int i = 0; i < buttonArray.length; i++){
             gameStatus[i] = 2;
             buttonArray[i].setText("");
         }
+
     }
 }
