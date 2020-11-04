@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void clearButtons(View view){
         btnCount = 0;
         currentPlayer = true;
-        for (int i = 0; i < buttonArray.length; i++){
+        for (int i = 1; i < buttonArray.length; i++){
             gameStatus[i] = 2;
             buttonArray[i].setText("");
         }
