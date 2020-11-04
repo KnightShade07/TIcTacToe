@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resetGame = (Button) findViewById(R.id.btnNewGame);
         //loop for the buttons/squares to listen for when they've been clicked.
-        for (int i = 0; i < buttonArray.length; i++){
+        for (int i = 1; i < buttonArray.length; i++){
             String buttonID = "btn_" + i;
             int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
             buttonArray[i] = (Button) findViewById(resourceID);
