@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView playerStatus;
     private Button [] buttonArray = new Button[9];
@@ -30,8 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        playerStatus = (TextView) findViewById(R.id.playerText);
         resetGame = (Button) findViewById(R.id.btnNewGame);
+        playerStatus.setText("Welcome to TicTacToe! To get started, click a square!");
         //loop for the buttons/squares to listen for when they've been clicked.
         for (int i = 1; i < buttonArray.length; i++){
             String buttonID = "btn_" + i;
@@ -56,12 +59,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          //checks which player is currently playing
         if (currentPlayer){
             ((Button)v).setText("X");
+            playerStatus.setText("It is now O's Turn.");
             //OPTIONAL: After functional, consider giving X a color.
             gameStatus[gameStatusTracker] = 0;
             currentPlayer = false; // by setting the currentPlayer boolean to false, we switch to player 2.
+
         }
         else{
             ((Button)v).setText("O");
+            playerStatus.setText("It is now X's Turn.");
             //OPTIONAL: After functional, consider giving O a color.
             gameStatus[gameStatusTracker] = 1;
             currentPlayer = true; //switch back to player 1.
@@ -77,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gameStatus[i] = 2;
             buttonArray[i].setText("");
         }
+        //makes sure that it gets reset back to X
+        //if the players restart early for any reason.
+        playerStatus.setText("It is now X's Turn.");
+
 
     }
+
 }
