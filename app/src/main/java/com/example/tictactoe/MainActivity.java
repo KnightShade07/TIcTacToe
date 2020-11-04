@@ -53,16 +53,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         String btnID = v.getResources().getResourceEntryName((v.getId()));
         int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
-
+         //checks which player is currently playing
         if (currentPlayer){
             ((Button)v).setText("X");
             //OPTIONAL: After functional, consider giving X a color.
             gameStatus[gameStatusTracker] = 0;
+            currentPlayer = false; // by setting the currentPlayer boolean to false, we switch to player 2.
         }
         else{
             ((Button)v).setText("O");
             //OPTIONAL: After functional, consider giving O a color.
             gameStatus[gameStatusTracker] = 1;
+            currentPlayer = true; //switch back to player 1.
         }
         btnCount++;
 
