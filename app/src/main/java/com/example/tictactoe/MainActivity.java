@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView playerStatus;
     private Button [] buttonArray = new Button[10];
     Button btnNewGame;
+
     
     private int p1Score, p2Score, btnCount;
     boolean currentPlayer;
@@ -36,15 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnNewGame = (Button) findViewById(R.id.btnNewGame);
         playerStatus.setText("Welcome to TicTacToe! To get started, click a square!");
         btnArrayClickListener();
-
-
     }
 
     @Override
     public void onClick(View v) {
         if (IsButtonPressed((Button) v)) return;
         changeTurns(v);
-
     }
 
     /**
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * The playerStatus.setText on line 119 makes sure that the playerText gets reset back to X
      * if the players decide to restart early for any reason.
      */
-    public void clearButtons(){
+    public void clearButtons(View v){
         btnCount = 0;
         currentPlayer = true;
         for (int i = 1; i < buttonArray.length; i++){
