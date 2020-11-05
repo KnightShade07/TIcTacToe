@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnNewGame;
 
     
-    private int p1Score, p2Score, btnCount;
+    private int btnCount;
     boolean currentPlayer;
 
     int [] gameStatus = {2,2,2,2,2,2,2,2,2,2};
