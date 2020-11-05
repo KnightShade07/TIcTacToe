@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView playerStatus;
     private Button [] buttonArray = new Button[10];
     private Button btnNewGame;
+    //This variable keeps track of the buttons and is
+    //incremented when a button is pressed.
+    //when btnCount = 9, the game will stop.
     private int btnCount;
     boolean currentPlayer;
     //This array keeps track of the empty, unmarked buttons.
     int [] gameStatus = {2,2,2,2,2,2,2,2,2,2};
     //2D array that will be used to keep track
     //of the winning rows and columns for HW3.
-
     int[][] winningCombinations = {
             {0,1,2}, {3,4,5}, {6,7,8},//rows.
             {0,3,6}, {1,4,7}, {2,5,8},//columns.
