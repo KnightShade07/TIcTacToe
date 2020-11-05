@@ -40,8 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * This method uses a for loop to listen for when
+     * the buttons on the TicTacToe Board have been clicked.
+     */
     private void btnArrayClickListener() {
-        //loop for the buttons/squares to listen for when they've been clicked.
         for (int i = 1; i < buttonArray.length; i++){
             String buttonID = "btn_" + i;
             int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
@@ -59,36 +62,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * This method uses the currentPlayer boolean in order to change turns in games
+     * of TicTacToe.
+     * currentPlayer set to true = player 1.
+     * currentPlayer set to false = player 2.
+     * @param v - The view of the android phone.
+     */
     public void changeTurns(View v) {
         String btnID = v.getResources().getResourceEntryName((v.getId()));
         int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
-        //checks which player is currently playing
         if (currentPlayer){
             ((Button)v).setText("X");
             playerStatus.setText("It is now O's Turn.");
-            //OPTIONAL: After functional, consider giving X a color.
             gameStatus[gameStatusTracker] = 0;
-            currentPlayer = false; // by setting the currentPlayer boolean to false, we switch to player 2.
+            currentPlayer = false;
 
         }
         else{
             ((Button)v).setText("O");
             playerStatus.setText("It is now X's Turn.");
-            //OPTIONAL: After functional, consider giving O a color.
             gameStatus[gameStatusTracker] = 1;
-            currentPlayer = true; //switch back to player 1.
+            currentPlayer = true;
         }
         btnCount++;
     }
 
+    /**
+     * This method checks if a button has been pressed,
+     * and if it has, make it unchangeable.
+     * @param v The button to be pressed.
+     *
+     */
     public boolean IsButtonPressed(Button v) {
-        //function to check if a button has been pressed, and if it has, make it uneditable.
         if (!v.getText().toString().equals("")){
             return true;
         }
         return false;
     }
 
+    /**
+     * This method uses a for loop to loop through the different TicTacToe
+     * Buttons, and resets their text so that the players can start a new game.
+     *
+     * The playerStatus.setText on line 119 makes sure that the playerText gets reset back to X
+     * if the players decide to restart early for any reason.
+     */
     public void clearButtons(){
         btnCount = 0;
         currentPlayer = true;
@@ -96,8 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             gameStatus[i] = 2;
             buttonArray[i].setText("");
         }
-        //makes sure that it gets reset back to X
-        //if the players restart early for any reason.
         playerStatus.setText("It is now X's Turn.");
 
 
