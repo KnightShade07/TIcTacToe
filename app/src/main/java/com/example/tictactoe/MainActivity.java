@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        playerStatus = (TextView) findViewById(R.id.playerText);
-        btnNewGame = (Button) findViewById(R.id.btnNewGame);
+        playerStatus = findViewById(R.id.playerText);
+        btnNewGame = findViewById(R.id.btnNewGame);
         playerStatus.setText("Welcome to TicTacToe! To get started, click a square!");
         btnArrayClickListener();
     }
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 1; i < buttonArray.length; i++){
             String buttonID = "btn_" + i;
             int resourceID = getResources().getIdentifier(buttonID, "id", getPackageName());
-            buttonArray[i] = (Button) findViewById(resourceID);
+            buttonArray[i] = findViewById(resourceID);
             buttonArray[i].setOnClickListener(this);
         }
         btnCount = 0;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     public void changeTurns(View v) {
         String btnID = v.getResources().getResourceEntryName((v.getId()));
-        int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
+        int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1));
         if (currentPlayer){
             ((Button)v).setText("X");
             playerStatus.setText("It is now O's Turn.");
