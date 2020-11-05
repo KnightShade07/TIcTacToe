@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if (IsButtonPressed((Button) v)) return;
+        changeTurns(v);
+
+    }
+
     /**
      * This method uses a for loop to listen for when
      * the buttons on the TicTacToe Board have been clicked.
@@ -55,12 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentPlayer = true;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (IsButtonPressed((Button) v)) return;
-        changeTurns(v);
 
-    }
 
     /**
      * This method uses the currentPlayer boolean in order to change turns in games
