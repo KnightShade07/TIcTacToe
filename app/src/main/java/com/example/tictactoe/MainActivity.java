@@ -13,7 +13,11 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView playerStatus;
     private Button [] buttonArray = new Button[10];
-    private Button resetGame;
+    Button btnNewGame;
+
+
+
+
 
     private int p1Score, p2Score, btnCount;
     boolean currentPlayer;
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         playerStatus = (TextView) findViewById(R.id.playerText);
-        resetGame = (Button) findViewById(R.id.btnNewGame);
+        btnNewGame = (Button) findViewById(R.id.btnNewGame);
         playerStatus.setText("Welcome to TicTacToe! To get started, click a square!");
         //loop for the buttons/squares to listen for when they've been clicked.
         for (int i = 1; i < buttonArray.length; i++){
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void clearButtons(View view){
+    public void clearButtons(){
         btnCount = 0;
         currentPlayer = true;
         for (int i = 1; i < buttonArray.length; i++){
