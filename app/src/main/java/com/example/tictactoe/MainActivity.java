@@ -54,13 +54,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //function to check if a button has been pressed, and if it has, make it uneditable.
-        if (!((Button)v).getText().toString().equals("")){
-            return;
-        }
+        if (IsButtonPressed((Button) v)) return;
+        changeTurns(v);
+
+    }
+
+    public void changeTurns(View v) {
         String btnID = v.getResources().getResourceEntryName((v.getId()));
         int gameStatusTracker = Integer.parseInt(btnID.substring(btnID.length()-1, btnID.length()));
-         //checks which player is currently playing
+        //checks which player is currently playing
         if (currentPlayer){
             ((Button)v).setText("X");
             playerStatus.setText("It is now O's Turn.");
@@ -77,7 +79,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             currentPlayer = true; //switch back to player 1.
         }
         btnCount++;
+    }
 
+    public boolean IsButtonPressed(Button v) {
+        //function to check if a button has been pressed, and if it has, make it uneditable.
+        if (!v.getText().toString().equals("")){
+            return true;
+        }
+        return false;
     }
 
     public void clearButtons(){
