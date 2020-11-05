@@ -13,21 +13,19 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView playerStatus;
     private Button [] buttonArray = new Button[10];
-    Button btnNewGame;
-
-    
+    private Button btnNewGame;
     private int btnCount;
     boolean currentPlayer;
-
+    //This array keeps track of the empty, unmarked buttons.
     int [] gameStatus = {2,2,2,2,2,2,2,2,2,2};
+    //2D array that will be used to keep track
+    //of the winning rows and columns for HW3.
 
     int[][] winningRowsAndColumns = {
             {0,1,2}, {3,4,5}, {6,7,8},//rows.
             {0,3,6}, {1,4,7}, {2,5,8},//columns.
             {0,4,8}, {2,4,6}//Diagonals
     };
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCount = 0;
         currentPlayer = true;
     }
-
-
 
     /**
      * This method uses the currentPlayer boolean in order to change turns in games
@@ -94,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param v The button to be pressed.
      *
      */
+
     public boolean IsButtonPressed(Button v) {
         if (!v.getText().toString().equals("")){
             return true;
