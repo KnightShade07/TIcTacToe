@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         playerStatus = findViewById(R.id.playerText);
         btnNewGame = findViewById(R.id.btnNewGame);
-        playerStatus.setText("Welcome to TicTacToe! To get started, click a square!");
+        playerStatus.setText("Welcome to TicTacToe! To get started, click a square!\n"
+        + " The game starts as X!");
         btnArrayClickListener();
     }
 
