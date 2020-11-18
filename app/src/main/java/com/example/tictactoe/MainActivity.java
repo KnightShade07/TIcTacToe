@@ -120,4 +120,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void checkWinner(){
+        
+    }
+
 }
