@@ -85,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             currentPlayer = true;
         }
         btnCount++;
+
+        //checks for winner
+        if (checkWinner()){
+            
+        }
     }
 
     /**
@@ -120,7 +125,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void checkWinner(){
+    public boolean checkWinner(){
+        boolean gameOutcome = false;
+
+
+        for (int[] winningCombos : winningCombinations){
+            if (gameStatus[winningCombos[0]] == gameStatus[winningCombos[1]] &&
+                    gameStatus[winningCombos[1]] == gameStatus[winningCombos[2]]
+                    && gameStatus[winningCombos[0]] !=2 ){
+                gameOutcome = true;
+
+            }
+        }
+
+        return gameOutcome;
         
     }
 
