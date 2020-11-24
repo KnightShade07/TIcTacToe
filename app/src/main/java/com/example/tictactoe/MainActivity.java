@@ -125,6 +125,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     *  This method uses a for loop and the 2D Array created earlier in the program
+     *  (winningCombinations) to determine who has won the game of TicTacToe.
+     *
+     * @return gameOutcome The final result of the game of TicTacToe.
+     */
     public boolean checkWinner(){
         boolean gameOutcome = false;
         
@@ -140,9 +146,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return gameOutcome;
         
     }
-
+    /**
+        This function modifies the Text in the TicTacToe game
+        based on who won. If all the buttons are filled with an X and O,
+        and there is no matching combination of 3 in a row for either player, it's a tie.
+     **/
     public void gameOutcomeManager(){
-        //checks for winner
         if(checkWinner()){
             if (currentPlayer){
                 playerStatus.setText("Player O Won!");
