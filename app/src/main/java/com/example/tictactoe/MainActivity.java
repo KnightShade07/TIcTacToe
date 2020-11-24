@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -86,10 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         btnCount++;
 
-        //checks for winner
-        if (checkWinner()){
-            
-        }
+        gameOutcomeManager();
+
+
     }
 
     /**
@@ -127,8 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean checkWinner(){
         boolean gameOutcome = false;
-
-
+        
         for (int[] winningCombos : winningCombinations){
             if (gameStatus[winningCombos[0]] == gameStatus[winningCombos[1]] &&
                     gameStatus[winningCombos[1]] == gameStatus[winningCombos[2]]
@@ -141,5 +140,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return gameOutcome;
         
     }
+
+    public void gameOutcomeManager(){
+        //checks for winner
+        if(checkWinner()){
+            if (currentPlayer){
+                playerStatus.setText("Player O Won!");
+            }
+            else{
+                playerStatus.setText("Player X Won!");
+            }
+        }
+        else if (btnCount == 9){
+            playerStatus.setText("The game is tied, no one won!");
+        }
+
+    }
+
 
 }
